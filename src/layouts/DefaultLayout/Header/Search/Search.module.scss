@@ -1,0 +1,30 @@
+.wrapper-search {
+  display: flex;
+  align-items: center;
+  width: 350px;
+  input {
+    color: #000;
+    border: 1px solid #353535;
+    padding: 12px 5px;
+    font-style: italic;
+    width: 100%;
+    outline: none;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    &:focus {
+      border-color: #fff601;
+    }
+  }
+  .icon-search {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+.search-result {
+  width: 350px;
+  background-color: #444444;
+  height: 50vh;
+  // overflow-y: overlay;
+}

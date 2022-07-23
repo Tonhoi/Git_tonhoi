@@ -1,0 +1,52 @@
+.list {
+  min-width: 223px;
+  margin-top: 20px;
+
+  .menu-item {
+    width: 33.33335%;
+    height: 100%;
+    cursor: pointer;
+    color: var(--white-color);
+    transition: all linear 0.3s;
+    border-radius: 4px;
+    &:hover {
+      cursor: pointer;
+      background-color: #666666;
+    }
+
+    .list-menu {
+      cursor: pointer;
+
+      color: currentColor;
+      padding: 11px 16px;
+      //   margin: 0 -16px;
+      display: flex;
+      justify-content: flex-start;
+    }
+  }
+
+  .wrapper-header {
+    height: 50px;
+    width: 100%;
+    position: relative;
+    button {
+      background: transparent;
+      border: none;
+      width: 50px;
+      height: 50px;
+      font-size: 2rem;
+      font-weight: 400;
+      cursor: pointer;
+    }
+
+    .title {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-weight: 700;
+      font-size: 1.6rem;
+      line-height: 22px;
+    }
+  }
+}
