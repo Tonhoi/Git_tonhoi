@@ -11,17 +11,20 @@
     border-radius: 4px;
     &:hover {
       cursor: pointer;
-      background-color: #666666;
+      background-color: #888888;
     }
 
     .list-menu {
       cursor: pointer;
-
       color: currentColor;
       padding: 11px 16px;
-      //   margin: 0 -16px;
       display: flex;
       justify-content: flex-start;
+    }
+    &.active {
+      transition: all linear 0.3s;
+      background-color: var(--brown-color);
+      position: relative;
     }
   }
 

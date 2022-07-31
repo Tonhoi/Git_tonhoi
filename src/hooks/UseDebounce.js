@@ -11,7 +11,7 @@ const UseDebounce = (value, time = 700) => {
     return () => {
       clearTimeout(reset);
     };
-  }, [value]);
+  }, [value, time]);
 
   return { debounce };
 };

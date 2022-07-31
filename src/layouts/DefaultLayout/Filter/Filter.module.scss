@@ -1,0 +1,29 @@
+.wrapper {
+  padding: 8px 0;
+  .wrapper-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    select {
+      cursor: pointer;
+      height: 100%;
+      margin: 0 5px 0 0;
+      padding: 12px 4px;
+      font-size: 1.2rem;
+      background: #56635a;
+      box-shadow: none;
+      border: none;
+      color: #fafafa;
+      outline: none;
+      border-radius: 4px;
+    }
+    button {
+      cursor: pointer;
+      border: none;
+      background: #56635a;
+      padding: 6px 12px;
+      border-radius: 4px;
+      color: var(--white-color);
+    }
+  }
+}

@@ -9,14 +9,18 @@ function App() {
       <Routes>
         {publicRoute.map((route, index) => {
           const Element = route.element;
+          let Layout = DefaultLayout;
+          if (route.layout) {
+            Layout = route.layout;
+          }
           return (
             <Route
               key={index}
               path={route.path}
               element={
-                <DefaultLayout>
+                <Layout>
                   <Element />
-                </DefaultLayout>
+                </Layout>
               }
             />
           );

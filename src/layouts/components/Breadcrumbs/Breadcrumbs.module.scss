@@ -1,0 +1,26 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  gap: 8px;
+  background: #56635a;
+  margin: 16px 0;
+  border-radius: 4px;
+  .icon-home {
+    color: var(--white-color);
+  }
+  .wrapper-content {
+    display: flex;
+    gap: 8px;
+    position: relative;
+    cursor: pointer;
+    color: #a3a3a3;
+    &:hover {
+      color: var(--white-color);
+    }
+    .icon-arrow-right {
+      display: flex;
+      align-items: center;
+    }
+  }
+}

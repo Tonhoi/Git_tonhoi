@@ -1,15 +1,18 @@
 import PropTypes from "prop-types";
 import React from "react";
 import classNames from "classnames/bind";
+import { NavLink } from "react-router-dom";
+
 import styles from "./MenuItem.module.scss";
 import Button from "../../Button";
 
 const cx = classNames.bind(styles);
-const MenuItem = ({ data, onClick }) => {
+const MenuItem = ({ data, onClick, to = "" }) => {
+  const className = (nav) => cx("menu-item", { active: nav.isActive });
   return (
-    <div className={cx("menu-item")} onClick={onClick}>
+    <NavLink className={className} onClick={onClick} to={data.to}>
       <Button className={cx("list-menu")}>{data.title}</Button>
-    </div>
+    </NavLink>
   );
 };
 MenuItem.propTypes = {

@@ -1,0 +1,24 @@
+.item {
+  user-select: none;
+  color: var(--white-color);
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: normal;
+  padding: 15px 11.6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 16px;
+  white-space: nowrap;
+  position: relative;
+  transition: all linear 0.3s;
+  &:hover {
+    background-color: var(--brown-color);
+    transition: background-color linear 0.3s;
+  }
+  &.active {
+    border-radius: 4px;
+    background-color: var(--brown-color);
+    position: relative;
+  }
+}

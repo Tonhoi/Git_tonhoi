@@ -3,10 +3,14 @@
 }
 .wrapper-wide {
   width: 100%;
-  background-color: #333333;
+  background-color: #56635a;
 }
 
-.header {
+.header,
+.content,
+.breadcrumbs,
+.filter,
+.pagination {
   max-width: 1000px;
   margin: 0 auto;
 }
