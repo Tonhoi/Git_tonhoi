@@ -1,6 +1,6 @@
 .item {
   user-select: none;
-  color: var(--white-color);
+  color: #b4b2b9;
   cursor: pointer;
   text-transform: uppercase;
   font-weight: normal;
@@ -12,13 +12,34 @@
   white-space: nowrap;
   position: relative;
   transition: all linear 0.3s;
+  &:not(:last-child) {
+    margin-right: 14px;
+  }
   &:hover {
-    background-color: var(--brown-color);
+    color: var(--white-color);
     transition: background-color linear 0.3s;
   }
   &.active {
+    color: var(--white-color);
     border-radius: 4px;
-    background-color: var(--brown-color);
     position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      border-width: 12px;
+      border-style: solid;
+      border-color: transparent transparent var(--brown-color) transparent;
+    }
+  }
+}
+
+@media (max-width: 1023px) {
+  .item {
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
   }
 }

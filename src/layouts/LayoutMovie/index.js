@@ -4,12 +4,24 @@ import classNames from "classnames/bind";
 import styles from "./LayoutMovie.module.scss";
 import { Header } from "../components/Header";
 import { Breadcrumbs } from "../components/Breadcrumbs";
+import { Footer } from "../components/Footer";
+import { Toggle } from "../../components/Toggle";
+import { useSelector } from "react-redux";
 
 const cx = classNames.bind(styles);
 const LayoutMovie = ({ children }) => {
+  const theme = useSelector((prev) => prev.root.theme);
   return (
-    <div className={cx("wrapper")}>
-      <div className={cx("wrapper-wide")}>
+    <div
+      className={cx("wrapper", {
+        light_theme: theme,
+      })}
+    >
+      <div
+        className={cx("wrapper-wide", {
+          light_theme: theme,
+        })}
+      >
         <div className={cx("header")}>
           <Header />
         </div>
@@ -17,8 +29,15 @@ const LayoutMovie = ({ children }) => {
       <div className={cx("breadcrumbs")}>
         <Breadcrumbs />
       </div>
-
-      <div className={cx("content")}>{children}</div>
+      <div className={cx("content")}>
+        <div className={cx("children")}>{children}</div>
+      </div>
+      <div className={cx("toggle")}>
+        <Toggle />
+      </div>
+      <div className={cx("footer")}>
+        <Footer />
+      </div>
     </div>
   );
 };

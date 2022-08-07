@@ -1,0 +1,13 @@
+.wrapper {
+  width: 100%;
+}
+.wrapper-wide {
+  width: 100%;
+  background-color: var(--header-color);
+}
+
+.header,
+.content {
+  max-width: 1000px;
+  margin: 0 auto;
+}

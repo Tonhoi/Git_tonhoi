@@ -1,0 +1,25 @@
+.wrapper {
+  width: 100%;
+  background-color: var(--content-color);
+}
+.wrapper-wide {
+  width: 100%;
+  background-color: var(--header-color);
+}
+
+.header,
+.children {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.children {
+  width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .children {
+    width: 100%;
+    padding: 0 10px;
+  }
+}

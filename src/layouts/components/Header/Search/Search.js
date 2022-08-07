@@ -1,9 +1,8 @@
-import React, { memo, useEffect, useState } from "react";
+import React, { memo, useEffect, useRef, useState } from "react";
 import axios from "axios";
 import HeadlessTippy from "@tippyjs/react/headless";
 import { Scrollbars } from "react-custom-scrollbars";
 import classNames from "classnames/bind";
-import Tippy from "@tippyjs/react/headless";
 import { useSpring, motion } from "framer-motion";
 import "tippy.js/dist/tippy.css";
 
@@ -17,18 +16,19 @@ import {
   setLoadingBasis,
   setSeachResult,
   setSearchValue,
-} from "../../../../redux/action";
+} from "../../../../redux/reducer";
 import Button from "../../../../components/Button";
 
 const cx = classNames.bind(styles);
 const Search = () => {
+  const classNameRef = useRef();
   // redux
   const dispatch = useDispatch();
-  const state = useSelector((prev) => prev);
+  const state = useSelector((prev) => prev.root);
 
   // state local
   const [checkBlur, setCheckBlur] = useState(true);
-  const searchValue = useSelector((prev) => prev.searchValue);
+  const searchValue = useSelector((prev) => prev.root.searchValue);
   const { debounce: value } = UseDebounce(searchValue, 800);
 
   // handle animation tippy headless
@@ -85,11 +85,12 @@ const Search = () => {
   };
 
   return (
-    <div>
+    <div className={cx("search-on-pc")}>
       <HeadlessTippy
         placement="bottom-end"
         interactive
-        visible={checkBlur && state?.seachResult.length > 0}
+        visible={checkBlur && state?.seachResult?.length > 0}
+        ref={classNameRef}
         render={(attrs) => (
           <div className={cx("search-result")} tabIndex="-1" {...attrs}>
             <h3 className={cx("heading")}>Danh sách tìm kiếm</h3>
@@ -105,7 +106,7 @@ const Search = () => {
                   );
                 })}
             </Scrollbars>
-            <Tippy
+            <HeadlessTippy
               render={(attrs) => (
                 <motion.div
                   className={cx("box")}
@@ -128,7 +129,7 @@ const Search = () => {
                   Xem tất cả các kết quả của từ khóa " {searchValue} "
                 </Button>
               </div>
-            </Tippy>
+            </HeadlessTippy>
           </div>
         )}
         onClickOutside={() => {
@@ -147,7 +148,7 @@ const Search = () => {
           <div className={cx("wrapper-icon-search")}>
             <SearchIcon className={cx("icon-search")} />
           </div>
-          {state.loadingBasis && <Loading />}
+          {state?.loadingBasis && <Loading />}
           {!state.loadingBasis && state?.seachResult.length > 0 && (
             <div className={cx("wrapper-icon-close")} onClick={handleClose}>
               <CloseIcon className={cx("icon-close")} />

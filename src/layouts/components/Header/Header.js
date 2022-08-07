@@ -1,37 +1,70 @@
 import React from "react";
 import classNames from "classnames/bind";
-import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 
-import { ChevronDownIcon, SettingsIcon } from "../../../components/Icons";
+import {
+  BookMarkIcon,
+  ChevronDownIcon,
+  MenuIcon,
+  SearchIcon,
+} from "../../../components/Icons";
+import { signOut, onAuthStateChanged } from "firebase/auth";
 import { Search } from "./Search";
 import Menu from "../../../components/Popper/Menu";
 import styles from "./Header.module.scss";
 import { List } from "./List";
 import { CATEGORY, COUNTRY } from "../../../components/DropDown";
 import { routes } from "../../../configs";
-import { setCheckBlur } from "../../../redux/action";
+import { auth } from "../../../firebase/firebase-config";
+import { setUserInfo } from "../../../redux/reducer";
 
 const cx = classNames.bind(styles);
 
 const Header = () => {
-  let { theloai } = useParams();
-  let { quocgia } = useParams();
+  const dispatch = useDispatch();
+  const currentUser = useSelector((prev) => prev.root.userinfo);
+  let param = useParams();
+
+  onAuthStateChanged(auth, (currentUser) => {
+    dispatch(setUserInfo(currentUser));
+  });
+  const handleLogout = (e) => {
+    signOut(auth);
+  };
   return (
     <div className={cx("wrapper")}>
       <div className={cx("wrapper-top")}>
         <div className={cx("logo")}>
-          <img src="https://motchill.net/motchill.png?v1.0.2" alt="" />
+          <div className={cx("menu-icon-block")}>
+            <MenuIcon />
+          </div>
+          <img src="https://xemphim.fun/static/skin/logo-full.png" alt="" />
         </div>
         <Search />
         <div className={cx("options")}>
-          <Tippy content="Cài đặt">
-            <div>
-              <SettingsIcon className={cx("icon-setting")} />
-            </div>
-          </Tippy>
-          <img src="https://avatar.talk.zdn.vn/default" alt="" />
+          <div className={cx("favourite-movie")}>
+            <BookMarkIcon className={cx("bookmark-icon")} />
+            <span>Phim yêu thích</span>
+          </div>
+          <Link to={routes.login} className={cx("image-block")}>
+            <img src="https://avatar.talk.zdn.vn/default" alt="" />
+            <span>
+              {currentUser?.displayName
+                ? currentUser?.displayName
+                : "Đăng nhập"}
+            </span>
+            {currentUser?.displayName && (
+              <ul>
+                <li onClick={handleLogout}>Đăng xuất</li>
+              </ul>
+            )}
+          </Link>
+          <div className={cx("search-block-on-tablet-mobile")}>
+            <SearchIcon className={cx("search-icon")} />
+            <span>Tìm kiếm</span>
+          </div>
         </div>
       </div>
 
@@ -46,14 +79,18 @@ const Header = () => {
               <List
                 title="THỂ LOẠI"
                 iconRight={<ChevronDownIcon />}
-                classNames={typeof theloai !== "undefined" ? cx("active") : ""}
+                classNames={
+                  typeof param.theloai !== "undefined" ? cx("active") : ""
+                }
               />
             </Menu>
             <Menu items={COUNTRY}>
               <List
                 title="QUỐC GIA"
                 iconRight={<ChevronDownIcon />}
-                classNames={typeof quocgia !== "undefined" ? cx("active") : ""}
+                classNames={
+                  typeof param.quocgia !== "undefined" ? cx("active") : ""
+                }
               />
             </Menu>
             <List title="PHIM BỘ" to={routes.phimBo} />

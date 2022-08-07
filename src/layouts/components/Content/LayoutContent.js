@@ -6,7 +6,8 @@ import styles from "./Content.module.scss";
 import Content from "./Content";
 const cx = classNames.bind(styles);
 const LayoutContent = () => {
-  const data = useSelector((prev) => prev?.items?.data?.items);
+  const data = useSelector((prev) => prev?.root?.items?.data?.items);
+  const display = useSelector((prev) => prev?.root?.display);
 
   const RenderContent = () => {
     return (
@@ -15,9 +16,17 @@ const LayoutContent = () => {
     );
   };
   return (
-    <div className={cx("wrapper")}>
-      <RenderContent />
-    </div>
+    <>
+      {display === "column" ? (
+        <div className={cx("wrapper-column")}>
+          <RenderContent />
+        </div>
+      ) : (
+        <div className={cx("wrapper-row")}>
+          <RenderContent />
+        </div>
+      )}
+    </>
   );
 };
 

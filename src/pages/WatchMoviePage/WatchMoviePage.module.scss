@@ -1,0 +1,117 @@
+.wrapper {
+  .note-block {
+    text-align: center;
+    margin-top: 8px;
+    color: var(--white-color);
+    font-size: 1.2rem;
+    &.light_theme {
+      --white-color: var(--black-color-2);
+      font-weight: 700;
+    }
+    span {
+      font-weight: 500;
+      a {
+        color: blue;
+        margin-left: 4px;
+        text-decoration: underline;
+        &:hover {
+          color: #dcf836;
+        }
+      }
+    }
+  }
+  .info-block {
+    margin: 40px 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .info-block-left {
+      .name-movie {
+        display: block;
+        font-size: 3.2rem;
+        margin: 12px 0 4px;
+        color: var(--white-color);
+        &.light_theme {
+          --white-color: var(--black-color-2);
+          // color: red;
+          font-weight: 700;
+        }
+      }
+      .sub-name-movie {
+        display: block;
+        font-size: 2rem;
+        color: var(--gray-color-b5);
+        &.light_theme {
+          --gray-color-b5: var(--black-color-8);
+          font-weight: 700;
+        }
+      }
+    }
+
+    .info-block-right {
+      display: flex;
+      gap: 4px;
+      align-items: center;
+      padding: 7px 20px;
+      border-radius: 4px;
+      background-color: transparent;
+      border: 1px solid #3e8ed0;
+      color: #3e8ed0;
+      border-radius: 9999px;
+      cursor: pointer;
+      &:hover {
+        background-color: #3e8ed0;
+        border-color: #3e8ed0;
+        color: var(--white-color);
+      }
+      span {
+        font-size: 2rem;
+      }
+      .icon-block {
+        display: flex;
+        .save-icon {
+          color: var(--white-color);
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+  .btn-block {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+    margin: 12px 0 0 0;
+    .btn {
+      padding: 7px 16px;
+      background-color: #48c78e;
+      color: var(--white-color);
+      margin: 0 2px 2px 0;
+      border-radius: 4px;
+      min-width: 90px;
+      text-align: center;
+      &:hover {
+        opacity: 0.8;
+      }
+      &.active {
+        cursor: default;
+        opacity: 0.5;
+      }
+    }
+  }
+
+  // comment
+
+  .comment {
+    margin: 40px 0;
+  }
+}
+
+@media (max-width: 739px) {
+  .wrapper {
+    .info-block {
+      flex-direction: column;
+      gap: 16px;
+      align-items: start;
+    }
+  }
+}

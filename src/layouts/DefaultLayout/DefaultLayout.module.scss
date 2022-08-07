@@ -1,16 +1,37 @@
 .wrapper {
   width: 100%;
+  background-color: var(--content-color);
+  &.light_theme {
+    --content-color: var(--white-color);
+  }
 }
 .wrapper-wide {
   width: 100%;
-  background-color: #56635a;
+  margin: 0 auto;
+  background-color: var(--header-color);
+  &.light_theme {
+    --header-color: #331169;
+  }
 }
 
 .header,
-.content,
 .breadcrumbs,
 .filter,
 .pagination {
-  max-width: 1000px;
+  width: 100%;
+  max-width: 1100px;
   margin: 0 auto;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+}
+@media (max-width: 1023px) {
+  .breadcrumbs,
+  .filter,
+  .content {
+    display: block;
+    padding: 0 10px;
+  }
 }

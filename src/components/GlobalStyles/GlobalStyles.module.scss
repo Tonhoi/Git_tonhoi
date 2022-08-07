@@ -1,9 +1,29 @@
 @import "normalize.css";
 
 :root {
+  --content-color: #06121e;
+  // --header-color: #331169;
+  --header-color: transparent;
+
   --black-color: #000;
+  --black-color-2: #222;
+  --black-color-3: #333;
+  --black-color-4: #444;
+  --black-color-5: #555;
+  --black-color-8: #888;
+  --black-color-9: #999;
+
+  --yellow-color: #dacb46;
   --white-color: #fff;
   --brown-color: #c58560;
+
+  --gray-color: #ccc;
+  --gray-color-db: #dbdbdb;
+  --gray-color-7a: #7a7a7a;
+  --gray-color-b5: #b5b5b5;
+  --gray-color-a3: #a3a3a3;
+
+  --blue-color-06121e: #06121e;
 }
 
 * {
@@ -18,7 +38,7 @@ html {
 
 body {
   font-size: 1.6rem;
-  background: #6f7f72;
+  // background: #6f7f72;
   font-family: "Netflix Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 @font-face {
@@ -40,19 +60,26 @@ li {
   text-decoration: none;
 }
 
-html *::-webkit-scrollbar {
-  border-radius: 0;
-  width: 8px;
+@media (min-width: 1024px) {
+  html ::-webkit-scrollbar {
+    border-radius: 0;
+    height: 8px;
+    width: 8px;
+    overflow: hidden;
+  }
 }
-html *::-webkit-scrollbar-thumb {
-  border-radius: 4px;
-  background-color: rgba(0, 0, 0, 0.15);
+
+@media (min-width: 1024px) {
+  html ::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 9.8);
+    border-radius: 4px;
+    overflow: overlay;
+  }
 }
-html *::-webkit-scrollbar-thumb {
-  border-radius: 4px;
-  background-color: rgba(0, 0, 0, 0.6);
-}
-html *::-webkit-scrollbar-track {
-  border-radius: 0;
-  background-color: rgba(0, 0, 0, 0);
+@media (min-width: 1024px) {
+  html ::-webkit-scrollbar-track {
+    overflow: overlay;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 0;
+  }
 }

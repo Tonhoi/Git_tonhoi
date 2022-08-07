@@ -1,9 +1,16 @@
 .wrapper {
   width: 100%;
+  background-color: var(--content-color);
+  &.light_theme {
+    --content-color: var(--white-color);
+  }
 }
 .wrapper-wide {
   width: 100%;
-  background-color: #56635a;
+  background-color: var(--header-color);
+  &.light_theme {
+    --header-color: #331169;
+  }
 }
 
 .header,
@@ -11,4 +18,24 @@
 .breadcrumbs {
   max-width: 1000px;
   margin: 0 auto;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  .children {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .content {
+    .children {
+      width: 100%;
+      padding: 0 10px;
+    }
+  }
+  .breadcrumbs {
+    padding: 0 10px;
+  }
 }

@@ -1,0 +1,64 @@
+.footer {
+  margin-top: 108px;
+  padding: 48px 0 50px;
+  background: url("https://xemphim.vip/static/skin/footer-bg.jpg");
+  .container {
+    width: 100%;
+    max-width: 1020px;
+    padding: 0 10px;
+    margin: 0 auto;
+    .heading {
+      color: var(--white-color);
+      font-size: 1.6rem;
+      margin: 0 0 24px;
+      text-align: center;
+      span {
+        display: block;
+      }
+      a {
+        color: #428bca;
+        cursor: pointer;
+        text-decoration: none;
+        font-size: 1.8rem;
+        &:hover {
+          color: #dcf836;
+        }
+      }
+    }
+    .list {
+      margin: 32px;
+      color: var(--gray-color-b5);
+      .item {
+        list-style: circle;
+        margin: 8px 0;
+        line-height: 2.2rem;
+      }
+    }
+
+    // layou contacts
+
+    .layout-contacts {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 12px;
+      .icon-link-block {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background: #071334;
+        width: 3em;
+        height: 3em;
+        border-radius: 50%;
+        border: 1px solid hsla(0, 0%, 100%, 0.36);
+        .icon {
+          color: var(--white-color);
+        }
+        &:hover {
+          background: #2f0a61;
+        }
+      }
+    }
+  }
+}

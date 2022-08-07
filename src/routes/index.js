@@ -1,29 +1,44 @@
-import { Home } from "../pages/Home";
-import { Shows } from "../pages/Shows";
-import { SeriesMovie } from "../pages/SeriesMovie";
-import { OddMovie } from "../pages/OddMovie";
-import { TheatersMovie } from "../pages/TheatersMovie";
-import { Cartoon } from "../pages/Cartoon";
-import { Category } from "../pages/Category";
-import { Country } from "../pages/Country";
 import { routes } from "../configs";
-import { Searchpage } from "../pages/SearchPage";
-import DetailMovie from "../pages/DetailMovie/DetailMovie";
-import LayoutMovie from "../layouts/LayoutMovie";
 
-const priviteRoutes = {};
+import LayoutMovie from "../layouts/LayoutMovie";
+import LayoutHeaderFooter from "../layouts/LayoutHeaderFooter";
+
+import { HomePage } from "../pages/HomePage";
+import { ShowsPage } from "../pages/ShowsPage";
+import { SeriesMoviePage } from "../pages/SeriesMoviePage";
+import { OddMoviePage } from "../pages/OddMoviePage";
+import { TheatersMoviePage } from "../pages/TheatersMoviePage";
+import { CartoonPage } from "../pages/CartoonPage";
+import { CategoryPage } from "../pages/CategoryPage";
+import { CountryPage } from "../pages/CountryPage";
+import { Searchpage } from "../pages/SearchPage";
+import { DetailMoviePage } from "../pages/DetailMoviePage";
+import { WatchMoviePage } from "../pages/WatchMoviePage";
+import { faqPage } from "../pages/faqPage";
+import { Login } from "../pages/Login";
+import { Register } from "../pages/Register";
+
+const priviteRoutes = [];
 
 const publicRoute = [
-  { path: routes.home, element: Home },
-  { path: routes.shows, element: Shows },
-  { path: routes.phimBo, element: SeriesMovie },
-  { path: routes.phimLe, element: OddMovie },
-  { path: routes.phimSapChieu, element: TheatersMovie },
-  { path: routes.phimHoatHinh, element: Cartoon },
-  { path: routes.theLoai, element: Category },
-  { path: routes.quocGia, element: Country },
+  { path: routes.home, element: HomePage },
+  { path: routes.shows, element: ShowsPage },
+  { path: routes.phimBo, element: SeriesMoviePage },
+  { path: routes.phimLe, element: OddMoviePage },
+  { path: routes.phimSapChieu, element: TheatersMoviePage },
+  { path: routes.phimHoatHinh, element: CartoonPage },
+  { path: routes.theLoai, element: CategoryPage },
+  { path: routes.quocGia, element: CountryPage },
   { path: routes.danhSachSearch, element: Searchpage },
-  { path: routes.detailMovie, element: DetailMovie, layout: LayoutMovie },
+
+  { path: routes.faq, element: faqPage, layout: LayoutHeaderFooter },
+
+  { path: routes.detailMovie, element: DetailMoviePage, layout: LayoutMovie },
+  { path: routes.watchMovie, element: WatchMoviePage, layout: LayoutMovie },
+
+  // login
+  { path: routes.login, element: Login, layout: LayoutHeaderFooter },
+  { path: routes.register, element: Register, layout: LayoutHeaderFooter },
 ];
 
 export { priviteRoutes, publicRoute };

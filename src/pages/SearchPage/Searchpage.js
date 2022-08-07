@@ -3,14 +3,14 @@ import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 
-import { setItem, setLoadingAdvanced } from "../../redux/action";
+import { setItem, setLoadingAdvanced } from "../../redux/reducer";
 import LayoutContent from "../../layouts/components/Content/LayoutContent";
 import { Loading } from "../../components/Loading/LoadingAdvanced";
 
 const Searchpage = () => {
   const dispatch = useDispatch();
-  const page = useSelector((prev) => prev.pages);
-  const loadingAdvanced = useSelector((prev) => prev.loadingAdvanced);
+  const page = useSelector((prev) => prev.root.pages);
+  const loadingAdvanced = useSelector((prev) => prev.root.loadingAdvanced);
 
   let { nameMovie } = useParams();
   useEffect(() => {

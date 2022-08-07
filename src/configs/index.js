@@ -8,5 +8,11 @@ export const routes = {
   theLoai: "/the-loai/:theloai",
   quocGia: "/quoc-gia/:quocgia",
   danhSachSearch: "/tim-kiem/:nameMovie",
+  faq: "/faq",
   detailMovie: "/phim/:nameMovie",
+  watchMovie: "/watch/:nameMovie/:episode",
+
+  // login
+  login: "/login",
+  register: "/register",
 };
