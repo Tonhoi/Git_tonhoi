@@ -7,7 +7,7 @@ import styles from "./MenuItem.module.scss";
 import Button from "../../Button";
 
 const cx = classNames.bind(styles);
-const MenuItem = ({ data, onClick, to = "" }) => {
+const MenuItem = ({ data, onClick }) => {
   const className = (nav) => cx("menu-item", { active: nav.isActive });
   return (
     <NavLink className={className} onClick={onClick} to={data.to}>

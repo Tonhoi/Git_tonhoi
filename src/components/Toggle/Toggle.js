@@ -12,8 +12,6 @@ const Toggle = () => {
 
   const handleChangeTheme = (e) => {
     localStorage.setItem("theme", !theme);
-    // localStorage.removeItem("theme");
-    // setChangeTheme(!changeTheme);
     dispatch(setTheme(!theme));
   };
   return (

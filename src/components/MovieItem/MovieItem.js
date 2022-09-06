@@ -31,6 +31,7 @@ const MovieItem = ({ item, onClick }) => {
 
 MovieItem.propTypes = {
   item: PropTypes.object,
+  onClick: PropTypes.func,
 };
 
 export default memo(MovieItem);

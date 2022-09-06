@@ -3,33 +3,41 @@ import { createSlice } from "@reduxjs/toolkit";
 const rootReducer = createSlice({
   name: "root",
   initialState: {
+    // initial of admin
     items: [],
     seachResult: [],
     sortField: [],
     detailNameMovie: [],
-
-    loadingBasis: false,
-    loadingAdvanced: false,
-
-    searchValue: "",
-    slugNameMovie: "",
-
-    pages: 1,
-    thumnail: "",
+    // bình luận
+    posts: [],
 
     // login, logout
     userinfo: [],
+    // getTheme:
+    saveSort: [],
+    authenticatorUser: [],
+
+    // search value
+    searchValue: "",
+    slugNameMovie: "",
+    thumnail: "",
     userDisplayName: "",
-
     // custom display
-
+    slugUrlCurrent: "",
     display: "column",
 
     // theme
-
     theme: JSON.parse(localStorage.getItem("theme")),
-    // getTheme:
-    saveSort: [],
+
+    pages: 1,
+
+    loadingBasis: false,
+    loadingAdvanced: false,
+    // -------------------------------------
+
+    // initial of admin
+
+    toggleSideBarAdmin: false,
   },
   reducers: {
     setSeachResult: (state, actions) => ({
@@ -92,13 +100,31 @@ const rootReducer = createSlice({
       ...state,
       theme: actions.payload,
     }),
+    setSlugUrlCurrent: (state, actions) => ({
+      ...state,
+      slugUrlCurrent: actions.payload,
+    }),
+    setSaveSort: (state, actions) => ({
+      ...state,
+      saveSort: actions.payload,
+    }),
+    setAuthenticatorUser: (state, actions) => ({
+      ...state,
+      authenticatorUser: actions.payload,
+    }),
 
-    setSaveSort: (state, actions) => {
-      return {
-        ...state,
-        saveSort: [...state.saveSort, actions.payload],
-      };
-    },
+    setPosts: (state, actions) => ({
+      ...state,
+      posts: actions.payload,
+    }),
+
+    // --------------------------------------
+    // handle reducer of admin
+
+    setToggleSideBarAdmin: (state, actions) => ({
+      ...state,
+      toggleSideBarAdmin: actions.payload,
+    }),
   },
 });
 export const {
@@ -117,6 +143,14 @@ export const {
   setDisplay,
   setTheme,
   setSaveSort,
+  setSlugUrlCurrent,
+  setAuthenticatorUser,
+
+  setPosts,
+
+  // ------------------------------
+  // action of admin
+  setToggleSideBarAdmin,
 } = rootReducer.actions;
 
 export default rootReducer.reducer;

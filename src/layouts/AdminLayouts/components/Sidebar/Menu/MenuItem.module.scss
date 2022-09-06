@@ -1,0 +1,27 @@
+.item {
+  color: #8391a2;
+  display: block;
+  cursor: pointer;
+  padding: 15px 20px;
+  &.active {
+    border-right: 2px solid red;
+    color: var(--white-color);
+  }
+  &.toggleActive {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    & span {
+      display: block;
+    }
+  }
+
+  span {
+    display: none;
+  }
+
+  &:hover {
+    color: var(--white-color);
+    border-right: 2px solid red;
+  }
+}

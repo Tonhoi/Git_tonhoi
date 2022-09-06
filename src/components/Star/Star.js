@@ -1,5 +1,7 @@
 import React, { memo, useState } from "react";
 import classNames from "classnames/bind";
+import PropTypes from "prop-types";
+
 import styles from "./Star.module.scss";
 import images from "../../assets/images";
 const STARS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -51,6 +53,12 @@ const Star = ({ value = 0, messages = MESSAGES, onClickStar = () => {} }) => {
       <p className={cx("star_message")}>{messages[selected]}</p>
     </div>
   );
+};
+
+Star.propTypes = {
+  value: PropTypes.number,
+  messages: PropTypes.string,
+  onClickStar: PropTypes.func,
 };
 
 export default memo(Star);

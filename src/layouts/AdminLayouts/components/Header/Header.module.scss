@@ -1,0 +1,116 @@
+.header {
+  min-height: 70px;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .left-block {
+    display: flex;
+    align-items: center;
+    .search-block {
+      margin: 0 0 0 12px;
+      position: relative;
+      .search-icon-block {
+        position: absolute;
+        top: 50%;
+        left: 8px;
+        transform: translateY(-50%);
+        padding: 8px;
+        cursor: pointer;
+        .search-icon {
+          width: 20px;
+          height: 20px;
+        }
+      }
+      input {
+        flex-shrink: 0;
+        border: none;
+        height: calc(1.5em + 0.9rem + 2px);
+        padding: 12px 12px 12px 48px;
+        background-color: #f1f3fa;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        outline: none;
+      }
+      .btn-search {
+        color: var(--white-color);
+        background-color: #6169d0;
+        border-color: #5b63c4;
+        padding: 7px 15px;
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 2px 6px 0 rgb(114 124 245 / 50%);
+      }
+    }
+  }
+  .right-block {
+    display: flex;
+    align-items: center;
+    .avatar-block {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 10px;
+      color: #98a6ad;
+      background-color: #fafbfd;
+      padding: calc(31px * 0.5) 20px calc(31px * 0.5) 26px !important;
+      border: 1px solid #f1f3fa;
+      border-width: 0 1px;
+      cursor: pointer;
+      &:hover {
+        color: var(--black-color);
+      }
+
+      img {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+    }
+    .search-icon-block-on-tablet-mobile,
+    .bell-icon-block,
+    .setting-icon-block {
+      margin: 0 10px;
+      padding: 0;
+      color: #98a6ad;
+      display: block;
+      text-align: center;
+      position: relative;
+      cursor: pointer;
+    }
+    .search-icon-on-tablet-mobile,
+    .bell-icon,
+    .setting-icon {
+      width: 24px;
+      height: 24px;
+      vertical-align: middle;
+      line-height: 70px;
+    }
+
+    .search-icon-block-on-tablet-mobile {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 1023px) {
+  .header {
+    .search-block {
+      display: none;
+    }
+    .right-block {
+      .avatar-block {
+        padding: 15.5px 20px 15.5px 16px !important;
+        span {
+          display: none;
+        }
+      }
+
+      .search-icon-block-on-tablet-mobile {
+        display: block;
+      }
+    }
+  }
+}
