@@ -109,6 +109,10 @@ const ManagerUserPage = () => {
     }
   };
 
+  const handleDeleteUser = (e, id) => {
+    console.log(id);
+  };
+
   return (
     <div className={cx("wrapper")}>
       <div className={cx("heading")}>
@@ -154,8 +158,10 @@ const ManagerUserPage = () => {
                         <span onClick={(e) => handleUpdateUserInfo(e, user.id)}>
                           Chỉnh sửa
                         </span>
-                        {currentUser.displayName !== user.displayName && (
-                          <span>Xóa</span>
+                        {currentUser.uid !== user.uid && (
+                          <span onClick={(e) => handleDeleteUser(e, user.id)}>
+                            Xóa
+                          </span>
                         )}
                       </div>
                     </td>

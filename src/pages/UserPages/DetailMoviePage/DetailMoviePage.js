@@ -14,22 +14,35 @@ import images from "../../../assets/images";
 import { setDetailNameMovie, setLoadingAdvanced } from "../../../redux/reducer";
 import { Comment } from "../../../layouts/UserLayouts/components/Content/Comment";
 import { Loading } from "../../../components/Loading/LoadingAdvanced";
+import { addDoc, collection } from "firebase/firestore";
+import { db } from "../../../firebase/firebase-config";
 
 const cx = className.bind(styles);
 const DetailMoviePage = () => {
   let { nameMovie } = useParams();
+  const database = collection(db, "userLikeComment");
 
   const dispatch = useDispatch();
   const data = useSelector((prev) => prev.root.detailNameMovie);
+  const currentUser = useSelector((prev) => prev.root.userinfo);
+
   const loadingAdvanced = useSelector((prev) => prev.root.loadingAdvanced);
 
   const [content, setContent] = useState("");
-  const onClickStar = (star) => console.log(star);
+  const onClickStar = async (star) => {
+    await addDoc(database, {
+      user_id: currentUser.uid,
+      movie_id: data?.movie?._id,
+      star_count: star,
+      isLike: true,
+    });
+    // console.log("hello");
+    // console.log(data?.movie?._id);
+  };
   useEffect(() => {
     const fetch = async () => {
       dispatch(setLoadingAdvanced(true));
       const res = await axios.get(`https://ophim1.com/phim/${nameMovie}`);
-      console.log(res.data);
       dispatch(setDetailNameMovie(res.data));
       setContent(res.data.movie.content);
       dispatch(setLoadingAdvanced(false));

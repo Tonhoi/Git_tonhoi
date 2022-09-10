@@ -24,6 +24,7 @@ import { getAdditionalUserInfo } from "firebase/auth";
 
 const cx = classNames.bind(styles);
 
+let alo = false;
 const WatchMoviePage = () => {
   const dispatch = useDispatch();
   let { nameMovie } = useParams();
@@ -61,53 +62,38 @@ const WatchMoviePage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const database = collection(db, "saveMovie");
-    let alo = false;
 
     const text = query(database, where("uid", "==", currentUser.uid));
     onSnapshot(text, async (snapshot) => {
       snapshot.docs.length <= 0
-        ? await addDoc(database, {
-            createAt: serverTimestamp(),
-            uid: currentUser.uid,
-            movie_id: data.movie?._id,
-            name_movie: data.movie.name,
-            origin_name: data.movie.origin_name,
-            title: data.movie.content,
-            slug_movie: data.movie.slug,
-            quality: data.movie.lang,
-            lang: data.movie.lang,
-            time: data.movie.time,
-            country: data.movie.country,
-            category: data.movie.category,
-            thumb_url: data.movie.thumb_url,
-            episode_current: data.movie.episode_current,
-          })
+        ? (alo = false)
         : (alo = snapshot.docs.some((doc) => {
             return doc.data().name_movie === data.movie.name;
           }));
-      console.log(alo);
-
-      if (!alo) {
-        await addDoc(database, {
-          createAt: serverTimestamp(),
-          uid: currentUser.uid,
-          movie_id: data.movie?._id,
-          name_movie: data.movie.name,
-          origin_name: data.movie.origin_name,
-          title: data.movie.content,
-          slug_movie: data.movie.slug,
-          quality: data.movie.lang,
-          lang: data.movie.lang,
-          time: data.movie.time,
-          country: data.movie.country,
-          category: data.movie.category,
-          thumb_url: data.movie.thumb_url,
-          episode_current: data.movie.episode_current,
-        });
-      } else {
-        toast("Phim này đã có trong danh sách yêu thích của bạn !");
-      }
     });
+    if (!alo) {
+      await addDoc(database, {
+        createAt: serverTimestamp(),
+        uid: currentUser.uid,
+        movie_id: data.movie?._id,
+        name_movie: data.movie.name,
+        origin_name: data.movie.origin_name,
+        title: data.movie.content,
+        slug_movie: data.movie.slug,
+        quality: data.movie.lang,
+        lang: data.movie.lang,
+        time: data.movie.time,
+        country: data.movie.country,
+        category: data.movie.category,
+        thumb_url: data.movie.thumb_url,
+        episode_current: data.movie.episode_current,
+      });
+      toast("phim này đã được thêm vào danh sách yêu thích !!");
+    } else {
+      toast(
+        "không thể thực hiện vì phim này đã có trong danh sách yêu thích của bạn !"
+      );
+    }
   };
   return (
     <>

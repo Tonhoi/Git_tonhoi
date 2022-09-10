@@ -56,7 +56,6 @@ const Register = () => {
     password: "",
     confirm_password: "",
   });
-  console.log(inputValue);
 
   const handleInputChange = (e) => {
     setInputValue({

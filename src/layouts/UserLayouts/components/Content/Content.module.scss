@@ -1,8 +1,8 @@
 // column
 .wrapper-column {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
   margin: 12px 0;
   user-select: none;
   position: relative;
@@ -162,18 +162,14 @@
 @media (min-width: 740px) and (max-width: 1024px) {
   .wrapper-column {
     padding: 0;
-    .cart-column {
-      flex-basis: calc(33.33335% - 16px);
-    }
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
 @media (max-width: 739px) {
   .wrapper-column {
     padding: 0;
-    .cart-column {
-      flex-basis: calc(50% - 16px);
-    }
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 

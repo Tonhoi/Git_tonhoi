@@ -1,9 +1,8 @@
-import React, { memo, useEffect, useRef, useState } from "react";
+import React, { memo, useEffect, useState } from "react";
 import classNames from "classnames/bind";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  updateDoc,
   addDoc,
   deleteDoc,
   collection,
@@ -64,7 +63,7 @@ const Comment = () => {
   const handleAddLike = async (e, post) => {
     const commentUpdate = doc(db, "comments", post.id);
     // console.log(isLike);
-    console.log(commentUpdate);
+    // const [time, setTime] = useState()
 
     await addDoc(databaseLike, {
       user_id: currentUser.uid,
@@ -118,7 +117,7 @@ const Comment = () => {
         >
           <div className={cx("header")}>
             <span>
-              {posts.length &&
+              {posts &&
                 posts.length > 0 &&
                 posts.map((post, index) => {
                   if (post?.comment_id === data.movie?._id) {
@@ -126,7 +125,9 @@ const Comment = () => {
                   }
                 })}
 
-              <span>{count} bình luận</span>
+              <span>{`${
+                count >= 1 ? count + " bình luận" : "Chưa có bình luận nào"
+              }`}</span>
             </span>
             <div>
               <span>sắp xếp theo</span>
@@ -216,7 +217,7 @@ const Comment = () => {
                           ) : (
                             ""
                           )}
-                          <span>12 giờ</span>
+                          <span>9h trước</span>
                         </div>
                       </div>
                     </li>

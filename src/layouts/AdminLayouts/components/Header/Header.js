@@ -55,6 +55,7 @@ const Header = () => {
             alt=""
           />
           <span>{currentUser.displayName}</span>
+          {console.log(currentUser)}
         </div>
       </div>
     </div>
