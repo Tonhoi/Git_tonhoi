@@ -3,9 +3,9 @@
   color: #161823;
 }
 .item {
-  padding: 9px 16px;
   display: flex;
   align-items: center;
+  padding: 9px 16px;
   &:hover {
     cursor: pointer;
     background-color: var(--black-color-8);
@@ -14,10 +14,12 @@
 
 .item-img {
   flex-shrink: 0;
+
   width: 40px;
   height: 40px;
   border-radius: 50%;
   margin: 0 12px 0 0;
+
   background-size: cover;
 }
 
@@ -34,9 +36,11 @@
 }
 .item-title {
   display: block;
+
+  color: var(--white-color);
+
   font-size: 1.2rem;
   line-height: 20px;
   font-weight: 400;
-  color: var(--white-color);
   text-overflow: ellipsis;
 }

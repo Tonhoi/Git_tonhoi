@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
+import { useLocation } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 
 import { Loading } from "../../../components/Loading/LoadingAdvanced";
@@ -16,10 +17,13 @@ const Browse = () => {
   const page = useSelector((prev) => prev.root.pages);
   const loadingAdvanced = useSelector((prev) => prev.root.loadingAdvanced);
 
+  const { pathname } = useLocation();
+
+  const slug = pathname.slice(8, pathname.length);
   useEffect(() => {
     const fetch = async () => {
       dispatch(setLoadingAdvanced(true));
-      const res = await GetListMovie(slugUrlCurrent, sort);
+      const res = await GetListMovie(slugUrlCurrent, slug);
       res?.data?.items?.length > 0 && slugUrlCurrent !== "tv-show" ? (
         dispatch(setItem(res))
       ) : (
@@ -32,7 +36,7 @@ const Browse = () => {
       dispatch(setLoadingAdvanced(false));
     };
     fetch();
-  }, [page, dispatch, sort, slugUrlCurrent]);
+  }, [page, dispatch, slug, slugUrlCurrent]);
 
   return (
     <>

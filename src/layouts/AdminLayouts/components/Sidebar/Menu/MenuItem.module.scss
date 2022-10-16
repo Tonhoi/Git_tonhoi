@@ -1,11 +1,13 @@
 .item {
-  color: #8391a2;
   display: block;
-  cursor: pointer;
   padding: 15px 20px;
+
+  color: #8391a2;
+
+  cursor: pointer;
   &.active {
-    border-right: 2px solid red;
     color: var(--white-color);
+    border-right: 2px solid red;
   }
   &.toggleActive {
     display: flex;

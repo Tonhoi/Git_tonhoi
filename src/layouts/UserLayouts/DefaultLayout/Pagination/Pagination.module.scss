@@ -1,8 +1,8 @@
 .wrapper {
-  margin: 20px 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin: 20px 0;
   .total-item {
     color: var(--white-color);
     &.leght_theme {
@@ -12,16 +12,20 @@
   }
   ul {
     display: flex;
-    gap: 8px;
     justify-content: flex-end;
+    gap: 8px;
     li {
-      cursor: pointer;
       padding: 4px;
       border-radius: 4px;
+
       background-color: #56635a;
+
+      cursor: pointer;
       a {
         padding: 4px;
+
         color: var(--white-color);
+
         user-select: none;
       }
       &:hover {

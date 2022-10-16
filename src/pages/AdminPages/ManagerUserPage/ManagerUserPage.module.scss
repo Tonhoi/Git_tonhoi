@@ -1,9 +1,10 @@
 .wrapper {
   width: 100%;
-  background-color: var(--white-color);
+  border-radius: 4px;
   box-shadow: 3px 3px 16px rgba(0, 0, 0, 0.6);
   padding: 12px;
-  border-radius: 4px;
+
+  background-color: var(--white-color);
   table {
     margin: 30px 0;
     border-collapse: collapse;
@@ -21,16 +22,21 @@
       align-items: center;
       justify-content: center;
       span {
-        padding: 8px;
         min-width: 102px;
-        margin: 8px 4px 8px 0;
-        background: #e54545;
-        color: var(--white-color);
-        user-select: none;
-        cursor: pointer;
-        text-align: center;
         border-radius: 4px;
         border: none;
+
+        margin: 8px 4px 8px 0;
+        padding: 8px;
+
+        color: var(--white-color);
+        background: #e54545;
+
+        text-align: center;
+        user-select: none;
+
+        cursor: pointer;
+
         &:nth-child(2) {
           background: #6169d0;
         }
@@ -52,12 +58,15 @@
   justify-content: space-between;
   .button-heading {
     border: none;
-    cursor: pointer;
-    padding: 12px;
-    background: rgba(0, 0, 0, 0.6);
     border-radius: 4px;
+    padding: 12px;
+
     color: var(--white-color);
+    background: rgba(0, 0, 0, 0.6);
+
     font-weight: 700;
+
+    cursor: pointer;
     &:hover {
       opacity: 0.8;
     }
@@ -66,12 +75,14 @@
 
 .img-table {
   display: flex;
-  object-fit: cover;
-  margin: 0 auto;
   width: 40px;
   height: 40px;
+  margin: 0 auto;
   border-radius: 50%;
+
   user-select: none;
+
+  object-fit: cover;
 }
 
 // modal
@@ -84,31 +95,32 @@
     gap: 4px;
     margin-top: 8px;
     .form-input {
-      // flex: 1;
-      // width: 100%;
-      margin-bottom: 4px;
       border: none;
       border: 1px solid var(--gray-color);
-      padding: 8px;
       border-radius: 4px;
+
+      margin-bottom: 4px;
+      padding: 8px;
     }
   }
 
   .btn-block {
-    margin-top: 8px;
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    margin-top: 8px;
     gap: 8px;
   }
 
   .btn-modal {
-    padding: 6px 12px;
     min-width: 80px;
     border: none;
     border: 1px solid var(--gray-color);
     border-radius: 4px;
+    padding: 6px 12px;
+
     font-weight: 700;
+
     cursor: pointer;
 
     &:hover {

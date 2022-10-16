@@ -3,7 +3,7 @@ import axios from "axios";
 const GetSearchMovie = async (value, page) => {
   try {
     const res = await axios.get(
-      `https://ophim.cc/_next/data/jMo1r8lC0F6IGwkz0ayh-/tim-kiem.json?keyword=${value}&${
+      `https://ophim.cc/_next/data/xh7RZM-AoUeEjC-THHEA3/tim-kiem.json?keyword=${value}&${
         page && `page=${page}`
       }`
     );

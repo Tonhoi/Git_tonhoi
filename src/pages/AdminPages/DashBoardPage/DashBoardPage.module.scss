@@ -1,11 +1,13 @@
 .wrapper {
   .heading {
-    padding-top: 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
     border-radius: 8px;
+
+    padding-top: 20px;
+
     overflow: hidden;
 
     .user-block,
@@ -14,8 +16,10 @@
     .trailer-movie-block {
       flex-basis: 25%;
       padding: 24px;
-      background: var(--white-color);
       border-left: 1px solid #dee2e6;
+
+      background: var(--white-color);
+
       font-size: 1.5rem;
       font-weight: 500;
       .icon-block {
@@ -31,6 +35,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+
         gap: 10px;
         span:first-child {
           font-size: 2.4rem;

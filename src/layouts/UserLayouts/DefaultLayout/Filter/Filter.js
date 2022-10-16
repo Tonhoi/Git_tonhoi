@@ -22,6 +22,7 @@ import { useState } from "react";
 const cx = classNames.bind(styles);
 const Filter = () => {
   let navigate = useNavigate();
+  const { pathname } = useLocation();
   const dispatch = useDispatch();
   const display = useSelector((prev) => prev.root.display);
 
@@ -60,19 +61,27 @@ const Filter = () => {
       }
       return null;
     });
+
     navigate(`/browse/${result.join("&")}`);
+
     dispatch(setSaveSort(result.join("&")));
 
+    localStorage.setItem("slugUrlCurrent", danhMuc.current.value);
     dispatch(setSlugUrlCurrent(danhMuc.current.value));
+    console.log(danhMuc.current.value);
   };
-  // useEffect(() => {
-  //   if (window.performance) {
-  //       if (performance.navigation.type == 1) {
-  //           danhMuc.current.value = "hoat-hinh";
-  //         }
-  //       }
-
-  // }, []);
+  useEffect(() => {
+    if (window.performance) {
+      if (performance.navigation.type == 1) {
+        const sliceRult = pathname.slice(8, pathname.length);
+        // console.log(sliceRult);
+        // console.log(sliceRult.indexOf("&"));
+        // console.log(sliceRult.search("hai-huoc"));
+        console.log(sliceRult.substring("minh toc quan"));
+        // console.log(danhMuc.current.value);
+      }
+    }
+  }, []);
 
   return (
     <div className={cx("wrapper")}>

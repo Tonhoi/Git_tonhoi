@@ -5,13 +5,15 @@
   margin: 12px 0;
   .cart {
     flex-basis: calc(25% - 16px);
-    background: var(--black-color);
     border-radius: 4px;
     overflow: hidden;
+
+    background: var(--black-color);
     .wrapper-img {
+      position: relative;
+
       width: 100%;
       overflow: hidden;
-      position: relative;
       img {
         width: 100%;
         transform: scale(1);
@@ -26,32 +28,37 @@
       }
 
       .overlay {
-        display: none;
         position: absolute;
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
+
+        display: none;
+
         background-color: rgba(0, 0, 0, 0.4);
         .icon-play {
           position: absolute;
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);
+
           color: var(--white-color);
         }
         cursor: pointer;
       }
     }
     .wrapper-content {
-      color: var(--white-color);
-      margin-top: 4px;
       display: flex;
       flex-direction: column;
       gap: 2px;
-      text-align: center;
+
+      margin-top: 4px;
       padding: 12px;
 
+      color: var(--white-color);
+
+      text-align: center;
       span {
         display: -webkit-box;
         -webkit-line-clamp: 1;

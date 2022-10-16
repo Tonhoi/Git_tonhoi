@@ -1,17 +1,22 @@
 .item {
+  position: relative;
+
+  display: flex;
   user-select: none;
+  align-items: center;
+  white-space: nowrap;
+  gap: 6px;
+  padding: 15px 11.6px;
+
   color: #b4b2b9;
-  cursor: pointer;
+
+  font-size: 16px;
   text-transform: uppercase;
   font-weight: normal;
-  padding: 15px 11.6px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 16px;
-  white-space: nowrap;
-  position: relative;
+
   transition: all linear 0.3s;
+  cursor: pointer;
+
   &:not(:last-child) {
     margin-right: 14px;
   }
@@ -20,10 +25,12 @@
     transition: background-color linear 0.3s;
   }
   &.active {
-    border-radius: 4px;
     position: relative;
-    background: #a0c1e1;
+
+    border-radius: 4px;
+
     color: #221313;
+    background: #a0c1e1;
   }
 }
 

@@ -1,10 +1,10 @@
 .wrapper {
   width: 100%;
-  //   background: var(--gray-color);
-  background-color: var(--white-color);
-  box-shadow: 3px 3px 16px rgba(0, 0, 0, 0.6);
   padding: 12px;
   border-radius: 4px;
+  box-shadow: 3px 3px 16px rgba(0, 0, 0, 0.6);
+
+  background-color: var(--white-color);
   table {
     margin: 30px 0;
     border-collapse: collapse;
@@ -22,16 +22,20 @@
       align-items: center;
       justify-content: center;
       span {
-        padding: 8px;
         min-width: 102px;
-        margin: 8px 4px 8px 0;
-        background: #e54545;
-        color: var(--white-color);
-        user-select: none;
-        cursor: pointer;
-        text-align: center;
         border-radius: 4px;
         border: none;
+
+        padding: 8px;
+        margin: 8px 4px 8px 0;
+
+        background: #e54545;
+        color: var(--white-color);
+
+        user-select: none;
+        text-align: center;
+
+        cursor: pointer;
         &:nth-child(2) {
           background: #6169d0;
         }
@@ -53,12 +57,15 @@
   justify-content: space-between;
   .button-heading {
     border: none;
-    cursor: pointer;
-    padding: 12px;
-    background: rgba(0, 0, 0, 0.6);
     border-radius: 4px;
+    padding: 12px;
+
     color: var(--white-color);
+    background: rgba(0, 0, 0, 0.6);
+
     font-weight: 700;
+
+    cursor: pointer;
     &:hover {
       opacity: 0.8;
     }

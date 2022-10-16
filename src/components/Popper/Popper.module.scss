@@ -1,12 +1,15 @@
 .wrapper {
-  width: 100%;
-  max-width: 450px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  background-color: #113960;
-  box-shadow: 2px 2px 40px rgba(0, 0, 0, 0.3);
-  border-radius: 8px;
+
+  width: 100%;
+  max-width: 450px;
   padding: 12px 16px 12px 16px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 40px rgba(0, 0, 0, 0.3);
+
+  background-color: #113960;
+
   // margin-top: 8px;
 }

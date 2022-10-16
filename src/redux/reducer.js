@@ -1,4 +1,23 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import GetListMovie from "../services/GetListMovieService";
+import GetSearchMovie from "../services/GetSearchMovieService";
+
+export const getAllListMovie = createAsyncThunk(
+  "root/getAllListMovie",
+  async (parameter) => {
+    const [slug, page] = parameter;
+    const listAllMovie = await GetListMovie(slug, page);
+    return listAllMovie;
+  }
+);
+
+export const getListSearchMovie = createAsyncThunk(
+  "root/getListSearchMovie",
+  async (nameMovie, page) => {
+    const listSearchMovie = await GetSearchMovie(nameMovie, page);
+    return listSearchMovie;
+  }
+);
 
 const rootReducer = createSlice({
   name: "root",
@@ -24,6 +43,7 @@ const rootReducer = createSlice({
     userDisplayName: "",
     // custom display
     slugUrlCurrent: "",
+    slugUrlCurrent: localStorage.getItem("slugUrlCurrent"),
     display: "column",
 
     // theme
@@ -125,6 +145,35 @@ const rootReducer = createSlice({
       ...state,
       toggleSideBarAdmin: actions.payload,
     }),
+  },
+
+  extraReducers: (builder) => {
+    builder.addCase(getAllListMovie.pending, (state) => {
+      state.loadingAdvanced = true;
+    });
+
+    builder.addCase(getAllListMovie.rejected, (state) => {
+      state.loadingAdvanced = false;
+    });
+
+    builder.addCase(getAllListMovie.fulfilled, (state, action) => {
+      state.loadingAdvanced = false;
+      state.items = action.payload;
+    });
+
+    // search movie
+    builder.addCase(getListSearchMovie.pending, (state) => {
+      state.loadingAdvanced = true;
+    });
+
+    builder.addCase(getListSearchMovie.rejected, (state) => {
+      state.loadingAdvanced = false;
+    });
+
+    builder.addCase(getListSearchMovie.fulfilled, (state, action) => {
+      state.loadingAdvanced = false;
+      state.seachResult = action.payload;
+    });
   },
 });
 export const {

@@ -8,10 +8,13 @@
   margin: 20px 15px;
 }
 .error-container > span {
-  display: inline-block;
-  line-height: 0.7;
   position: relative;
+
+  display: inline-block;
+
   color: #ffb485;
+
+  line-height: 0.7;
 }
 .error-container > span {
   display: inline-block;

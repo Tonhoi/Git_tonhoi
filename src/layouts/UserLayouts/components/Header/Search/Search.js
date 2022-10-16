@@ -1,5 +1,4 @@
 import React, { memo, useEffect, useRef, useState } from "react";
-import axios from "axios";
 import HeadlessTippy from "@tippyjs/react/headless";
 import { Scrollbars } from "react-custom-scrollbars";
 import classNames from "classnames/bind";
@@ -26,7 +25,6 @@ const Search = () => {
   // redux
   const dispatch = useDispatch();
   const state = useSelector((prev) => prev.root);
-  const search = useSelector((prev) => prev.root.search);
 
   // state local
   const [checkBlur, setCheckBlur] = useState(true);

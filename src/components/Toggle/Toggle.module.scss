@@ -4,38 +4,48 @@
   left: 10px;
   z-index: 9999;
   .toggle {
+    position: relative;
+
     width: 70px;
     height: 35px;
     border-radius: 24px;
+
     background: #525152;
-    position: relative;
+
     cursor: pointer;
     &.active {
       background: #0b84ff;
     }
     .circle {
-      width: 26px;
-      height: 26px;
-      border-radius: 50%;
       position: absolute;
       left: 9px;
       top: 50%;
-      transform: translateY(-50%);
+
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+
       background-color: #767676;
+
+      transform: translateY(-50%);
       transition: all linear 0.4s;
       &.active {
         left: 35px;
         background: var(--white-color);
         &::after {
           content: "";
+
           position: absolute;
           top: 50%;
           left: 50%;
-          transform: translate(-50%, -50%);
+
           width: 6px;
           height: 6px;
           border-radius: 50%;
+
           background-color: #0c83ff;
+
+          transform: translate(-50%, -50%);
         }
       }
     }

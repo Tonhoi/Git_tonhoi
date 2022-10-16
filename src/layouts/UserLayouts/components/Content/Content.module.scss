@@ -1,34 +1,47 @@
 // column
 .wrapper-column {
+  position: relative;
+
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 22px;
   margin: 12px 0;
+
   user-select: none;
-  position: relative;
   &.active {
     position: absolute;
   }
   .cart-column {
     flex-basis: calc(25% - 16px);
     border-radius: 4px;
+    border-bottom: 1px solid #868489;
+    margin-bottom: 20px;
     overflow: hidden;
+
     background: #4f4e52
       url(//2phimmoi.net/wp-content/themes/halimmovies/media/img/item_bgg.gif)
       repeat;
-    border-bottom: 1px solid #868489;
-    margin-bottom: 20px;
     .wrapper-img-column {
-      width: 100%;
-      overflow: hidden;
       position: relative;
+
+      width: 100%;
       height: 80%;
+      overflow: hidden;
       .status-column {
-        color: var(--white-color);
         position: absolute;
         left: 3px;
         top: 3px;
         z-index: 1;
+
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px;
+        padding: 4px;
+
+        color: var(--white-color);
+
+        font-size: 1.4rem;
+
         background-size: 200% 100%;
         background-image: linear-gradient(
           to right,
@@ -36,21 +49,18 @@
           #333399 51%,
           #ff00cc 100%
         );
-        border-top-left-radius: 3px;
-        border-top-right-radius: 3px;
-        border-bottom-right-radius: 3px;
         transition: 0.7s;
-        padding: 4px;
-        font-size: 1.4rem;
         &::after {
           content: "";
-          border: 4px solid transparent;
-          border-bottom: 4px solid #5f0e0c;
-          transform: rotate(44deg);
           position: absolute;
           bottom: -4px;
           left: 2px;
           z-index: 999999;
+
+          border: 4px solid transparent;
+          border-bottom: 4px solid #5f0e0c;
+
+          transform: rotate(44deg);
         }
       }
 
@@ -58,10 +68,13 @@
         position: absolute;
         right: 2px;
         bottom: 2px;
-        color: var(--white-color);
-        padding: 3px 5px 1px;
         z-index: 9;
+
+        padding: 3px 5px 1px;
         border-radius: 2px;
+        border-radius: 4px;
+
+        color: var(--white-color);
         background-size: 200% 100%;
         background-image: linear-gradient(
           to right,
@@ -69,15 +82,17 @@
           #f0cb35 51%,
           #c02425 100%
         );
-        transition: 0.7s;
+
         text-transform: capitalize;
-        border-radius: 4px;
+
+        transition: 0.7s;
       }
 
       .img-column {
-        object-fit: cover;
         height: 100%;
         width: 100%;
+
+        object-fit: cover;
         transform: scale(1);
         transition: transform linear 0.3s;
       }
@@ -91,30 +106,35 @@
       }
 
       .overlay-column {
-        display: none;
         position: absolute;
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
+
+        display: none;
+
         background-color: rgba(0, 0, 0, 0.4);
         .icon-play-column {
           position: absolute;
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);
+
           color: var(--white-color);
         }
         cursor: pointer;
       }
     }
     .wrapper-content-column {
-      color: var(--white-color);
-      margin: 2px;
       display: flex;
       flex-direction: column;
       gap: 2px;
       padding: 5px;
+      margin: 2px;
+
+      color: var(--white-color);
+
       font-size: 1.8rem;
 
       span {
@@ -126,30 +146,34 @@
         word-break: break-word;
         &:first-child {
           display: block;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          white-space: nowrap;
           width: 100%;
+          overflow: hidden;
+
           color: #44e2ff;
+
+          text-overflow: ellipsis;
+          text-decoration: none;
           text-transform: uppercase;
+          white-space: nowrap;
           font-size: 1.2rem;
           font-weight: 700;
-          text-decoration: none;
           &:hover {
             color: var(--yellow-color);
           }
         }
         &:last-child {
           display: inline-block;
+          width: 100%;
+          padding-top: 4px;
           overflow: hidden;
+
+          color: var(--gray-color);
+
           text-overflow: ellipsis;
           white-space: nowrap;
-          width: 100%;
           line-height: normal;
-          color: var(--gray-color);
-          font-size: 1.2rem;
           text-decoration: none;
-          padding-top: 4px;
+          font-size: 1.2rem;
           &:hover {
             color: var(--yellow-color);
           }

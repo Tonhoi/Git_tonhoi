@@ -1,11 +1,13 @@
 .wrapper {
   .title {
     display: block;
+    margin: 20px 0 40px;
+
+    color: var(--white-color);
+
     text-align: center;
     font-size: 4rem;
-    color: var(--white-color);
     font-weight: 700;
-    margin: 20px 0 40px;
   }
   .container {
     color: var(--gray-color-db);
@@ -13,7 +15,9 @@
       margin-bottom: 20px;
       .first-child {
         display: block;
+
         color: #ffe08a;
+
         font-size: 2.5rem;
         font-weight: 700;
         line-height: 3rem !important;
@@ -21,6 +25,7 @@
       span:last-child {
         display: block;
         margin: 20px 0;
+
         line-height: 2rem;
       }
     }

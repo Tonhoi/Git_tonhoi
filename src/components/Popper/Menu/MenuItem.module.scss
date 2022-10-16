@@ -8,48 +8,62 @@
   .menu-item {
     width: 33.33335%;
     height: 100%;
+    border-radius: 4px;
+
+    color: #b4b2b9;
+
     cursor: pointer;
     transition: all linear 0.3s;
-    border-radius: 4px;
-    color: #b4b2b9;
-    cursor: pointer;
+
     &:hover {
       color: var(--white-color);
     }
 
     .list-menu {
-      cursor: pointer;
-      color: currentColor;
-      padding: 11px 16px;
       display: flex;
       justify-content: flex-start;
+
+      padding: 11px 16px;
+
+      color: currentColor;
+
+      cursor: pointer;
     }
     &.active {
-      transition: all linear 0.3s;
-      color: var(--white-color);
       position: relative;
+
+      color: var(--white-color);
+
+      transition: all linear 0.3s;
       &::after {
         content: "";
+
         position: absolute;
         bottom: 0;
+
         width: 100%;
         height: 2px;
+
         background-color: #a0c1e1;
       }
     }
   }
 
   .wrapper-header {
+    position: relative;
+
     height: 50px;
     width: 100%;
-    position: relative;
     button {
-      background: transparent;
-      border: none;
       width: 50px;
       height: 50px;
+      border: none;
+
+      background: transparent;
+
       font-size: 2rem;
       font-weight: 400;
+
       cursor: pointer;
     }
 
@@ -57,10 +71,12 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);
+
       font-weight: 700;
       font-size: 1.6rem;
       line-height: 22px;
+
+      transform: translate(-50%, -50%);
     }
   }
 }

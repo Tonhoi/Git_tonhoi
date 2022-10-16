@@ -1,25 +1,29 @@
 .wrapper {
-  width: 100%;
-  height: 100%;
-  padding: 5px 0 0;
   display: flex;
   flex-direction: column;
-  gap: 12px;
   justify-content: space-between;
+  padding: 5px 0 0;
+  gap: 12px;
+
+  width: 100%;
+  height: 100%;
   .wrapper-top {
-    margin-top: 8px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 8px;
     .logo {
-      padding: 8px 0;
       display: flex;
       align-items: center;
+      padding: 8px 0;
       .menu-icon-block {
         display: none;
         margin-right: 12px;
-        cursor: pointer;
+
         color: var(--white-color);
+
+        cursor: pointer;
+
         &:hover {
           opacity: 0.8;
         }
@@ -27,26 +31,30 @@
       img {
         width: 112px;
         height: 28px;
-        user-select: none;
         object-fit: cover;
+
+        user-select: none;
       }
     }
 
     .options {
-      height: 100%;
       display: flex;
       align-items: center;
       gap: 8px;
+      height: 100%;
 
       .favourite-movie {
-        color: var(--white-color);
         display: flex;
         align-items: center;
         padding: 14px;
         border-radius: 24px;
+
+        color: var(--white-color);
         background-image: linear-gradient(to right, #dc143c, #db4160);
-        cursor: pointer;
+
         font-weight: 700;
+
+        cursor: pointer;
         &:hover {
           opacity: 0.8;
         }
@@ -58,38 +66,45 @@
         position: relative;
         z-index: 999;
 
-        color: var(--black-color);
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
         padding: 4px 14px 4px 8px;
         border-radius: 24px;
+
+        color: var(--black-color);
         background-image: linear-gradient(
           to right,
           var(--white-color),
           var(--gray-color)
         );
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
+
         font-weight: 700;
+
         cursor: pointer;
         &:hover {
           opacity: 0.8;
         }
 
         img {
-          margin-right: 4px;
           width: 40px;
           height: 40px;
+          margin-right: 4px;
           border-radius: 50%;
+
           cursor: pointer;
         }
       }
       .search-block-on-tablet-mobile {
         display: none;
-        height: 100%;
         align-items: center;
+        height: 100%;
+
         color: var(--white-color);
-        cursor: pointer;
+
         font-weight: 500;
+
+        cursor: pointer;
         &:hover {
           background: var(--black-color);
         }
@@ -100,24 +115,27 @@
     }
 
     .list {
-      // position: absolute;
-
-      top: 100%;
-      border-radius: 4px;
       left: 0;
+      top: 100%;
+
       width: 160px;
-      background-color: var(--white-color);
+      border-radius: 4px;
+
       color: var(--black-color);
-      // display: none;
+      background-color: var(--white-color);
       .item {
+        position: relative;
+
         display: flex;
         align-items: center;
-        gap: 8px;
-        position: relative;
         padding: 12px;
-        cursor: pointer;
+        gap: 8px;
+
         color: var(--black-color);
+
         font-weight: 500;
+
+        cursor: pointer;
         &:hover {
           background: rgba(0, 0, 0, 0.2);
         }

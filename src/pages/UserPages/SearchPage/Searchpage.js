@@ -2,10 +2,9 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 
-import { setItem, setLoadingAdvanced } from "../../../redux/reducer";
+import { getListSearchMovie, setItem } from "../../../redux/reducer";
 import LayoutContent from "../../../layouts/UserLayouts/components/Content/LayoutContent";
 import { Loading } from "../../../components/Loading/LoadingAdvanced";
-import GetSearchMovie from "../../../services/GetSearchMovieService";
 
 const Searchpage = () => {
   const dispatch = useDispatch();
@@ -14,10 +13,12 @@ const Searchpage = () => {
   let { nameMovie } = useParams();
   useEffect(() => {
     const fetch = async () => {
-      dispatch(setLoadingAdvanced(true));
-      const res = await GetSearchMovie(nameMovie, page);
-      dispatch(setItem(res));
-      dispatch(setLoadingAdvanced(false));
+      try {
+        const res = await dispatch(getListSearchMovie(nameMovie, page));
+        dispatch(setItem(res.payload));
+      } catch (error) {
+        console.log("có lỗi xảy ra");
+      }
     };
     fetch();
   }, [page, dispatch, nameMovie]);

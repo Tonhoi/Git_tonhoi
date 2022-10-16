@@ -1,20 +1,24 @@
 .wrapper {
   width: 100%;
-  background-color: var(--white-color);
+  border-radius: 4px;
   box-shadow: 3px 3px 16px rgba(0, 0, 0, 0.6);
   padding: 12px;
-  border-radius: 4px;
+
+  background-color: var(--white-color);
 
   .btn-block {
     margin: 8px 0;
     .btn {
       border: none;
-      padding: 6px 24px;
       border-radius: 4px;
-      background: rgba(0, 0, 0, 0.4);
-      font-size: 2rem;
-      cursor: pointer;
+      padding: 6px 24px;
+
       color: var(--black-color);
+      background: rgba(0, 0, 0, 0.4);
+
+      font-size: 2rem;
+
+      cursor: pointer;
       &:hover {
         opacity: 0.8;
       }
@@ -28,11 +32,13 @@
   }
 
   .title-block {
-    font-size: 2rem;
-    color: #98a6ad;
-    font-weight: 700;
     display: flex;
     align-items: center;
+
+    color: #98a6ad;
+
+    font-size: 2rem;
+    font-weight: 700;
     td:first-child {
       display: inline-block;
       min-width: 150px;
