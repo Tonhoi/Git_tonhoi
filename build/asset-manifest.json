@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/static/css/main.1467be0b.css",
+    "main.js": "/static/js/main.f7bdf8d7.js",
+    "static/js/787.e253fc0a.chunk.js": "/static/js/787.e253fc0a.chunk.js",
+    "static/media/NetflixSans_W_Md.woff2": "/static/media/NetflixSans_W_Md.a7eb753e6dc0059a0b06.woff2",
+    "static/media/NetflixSans_W_Rg.woff2": "/static/media/NetflixSans_W_Rg.0f89544675950f86a3c9.woff2",
+    "index.html": "/index.html",
+    "main.1467be0b.css.map": "/static/css/main.1467be0b.css.map",
+    "main.f7bdf8d7.js.map": "/static/js/main.f7bdf8d7.js.map",
+    "787.e253fc0a.chunk.js.map": "/static/js/787.e253fc0a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1467be0b.css",
+    "static/js/main.f7bdf8d7.js"
+  ]
+}
