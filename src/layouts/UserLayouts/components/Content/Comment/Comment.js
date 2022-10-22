@@ -141,16 +141,24 @@ const Comment = () => {
           <form onSubmit={handleSubmit} className={cx("write-comment-block")}>
             <div className={cx("comment-box")}>
               <img
-                src="https://scontent.fsgn2-2.fna.fbcdn.net/v/t1.30497-1/143086968_2856368904622192_1959732218791162458_n.png?stp=cp0_dst-png_p40x40&_nc_cat=1&ccb=1-7&_nc_sid=7206a8&_nc_ohc=KyL3SfQkDOYAX_WzrzG&_nc_ht=scontent.fsgn2-2.fna&oh=00_AT98fu3pwB_AdxMtFNudbtA0W5xy2_0Xi3BG9xfYB9P-VA&oe=63354178"
+                src="https://scontent.fsgn2-1.fna.fbcdn.net/v/t1.30497-1/143086968_2856368904622192_1959732218791162458_n.png?stp=cp0_dst-png_p40x40&_nc_cat=1&ccb=1-7&_nc_sid=7206a8&_nc_ohc=triOvM3Gcs0AX-EMBUO&_nc_ht=scontent.fsgn2-1.fna&oh=00_AT86mT-yOegkaQPvyGNN3DMIO4nom0pYbXK2IKmQhTViLA&oe=63748978"
                 alt=""
               />
 
-              <input
+              {/* <input
                 type="text"
                 placeholder="Viêt bình luận tại đây"
                 value={value}
                 onChange={handleChangeInput}
-              />
+              /> */}
+
+              <textarea
+                name=""
+                id=""
+                placeholder="Viêt bình luận tại đây"
+                onChange={handleChangeInput}
+                value={value}
+              ></textarea>
             </div>
             {value.length > 0 && (
               <div className={cx("btn-block")}>
@@ -176,13 +184,13 @@ const Comment = () => {
                     <li className={cx("item")} key={index}>
                       <div className={cx("image-block")}>
                         <img
-                          src="https://scontent.fsgn2-2.fna.fbcdn.net/v/t1.30497-1/143086968_2856368904622192_1959732218791162458_n.png?stp=cp0_dst-png_p40x40&_nc_cat=1&ccb=1-7&_nc_sid=7206a8&_nc_ohc=KyL3SfQkDOYAX_WzrzG&_nc_ht=scontent.fsgn2-2.fna&oh=00_AT98fu3pwB_AdxMtFNudbtA0W5xy2_0Xi3BG9xfYB9P-VA&oe=63354178"
+                          src="https://scontent.fsgn2-1.fna.fbcdn.net/v/t1.30497-1/143086968_2856368904622192_1959732218791162458_n.png?stp=cp0_dst-png_p40x40&_nc_cat=1&ccb=1-7&_nc_sid=7206a8&_nc_ohc=triOvM3Gcs0AX-EMBUO&_nc_ht=scontent.fsgn2-1.fna&oh=00_AT86mT-yOegkaQPvyGNN3DMIO4nom0pYbXK2IKmQhTViLA&oe=63748978"
                           alt=""
                         />
                       </div>
                       <div className={cx("content-block")}>
                         <span>{post.username}</span>
-                        <span>{post.title}</span>
+                        <span className={cx("title")}>{post.title}</span>
                         <div className={cx("options-block")}>
                           {console.log(isLike?.is_like)}
                           {isLike?.is_like ? (

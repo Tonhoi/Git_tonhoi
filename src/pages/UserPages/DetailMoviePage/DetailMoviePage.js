@@ -36,8 +36,6 @@ const DetailMoviePage = () => {
       star_count: star,
       isLike: true,
     });
-    // console.log("hello");
-    // console.log(data?.movie?._id);
   };
   useEffect(() => {
     const fetch = async () => {
@@ -86,7 +84,11 @@ const DetailMoviePage = () => {
                   data?.episodes[0]?.server_data[0]?.link_embed ? (
                     <Link
                       className={cx("btn")}
-                      to={`/watch/${data?.movie?.slug}/tap1`}
+                      to={`/watch/${data?.movie?.slug}/${
+                        data.movie.episode_current === "Full"
+                          ? "tapfull"
+                          : "tap1"
+                      }`}
                     >
                       Xem phim
                     </Link>

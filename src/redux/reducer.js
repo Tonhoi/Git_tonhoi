@@ -14,6 +14,7 @@ export const getAllListMovie = createAsyncThunk(
 export const getListSearchMovie = createAsyncThunk(
   "root/getListSearchMovie",
   async (nameMovie, page) => {
+    console.log(nameMovie, page);
     const listSearchMovie = await GetSearchMovie(nameMovie, page);
     return listSearchMovie;
   }

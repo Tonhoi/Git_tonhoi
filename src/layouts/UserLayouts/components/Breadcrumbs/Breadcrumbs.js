@@ -144,7 +144,8 @@ const Breadcrumbs = () => {
 
       {/* phân trang */}
       {!slugUrlCurrentt?.pathname?.startsWith("/phim/") &&
-        !slugUrlCurrentt?.pathname?.startsWith("/watch/") && (
+        !slugUrlCurrentt?.pathname?.startsWith("/watch/") &&
+        !slugUrlCurrentt?.pathname?.startsWith("/browse/") && (
           <>
             <div
               className={cx("wrapper-content", {
@@ -172,6 +173,10 @@ const Breadcrumbs = () => {
             </div>
           </>
         )}
+
+      {slugUrlCurrentt?.pathname?.startsWith("/browse/") && (
+        <div style={{ color: "white" }}>đang cập nhập</div>
+      )}
     </div>
   );
 };

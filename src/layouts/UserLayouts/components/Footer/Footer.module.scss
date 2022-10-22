@@ -3,6 +3,10 @@
   padding: 48px 0 50px;
 
   background: url("https://xemphim.vip/static/skin/footer-bg.jpg");
+
+  &.active {
+    margin-top: 200px;
+  }
   .container {
     width: 100%;
     max-width: 1020px;

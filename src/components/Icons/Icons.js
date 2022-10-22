@@ -175,7 +175,7 @@ export const PlayIcon = ({ className, width = "5rem", height = "5rem" }) => (
   </svg>
 );
 
-export const BookMarkIcon = ({
+export const BookMarkIconPc = ({
   className,
   width = "2rem",
   height = "2rem",
@@ -185,10 +185,33 @@ export const BookMarkIcon = ({
     className={className}
     width={width}
     height={height}
-    viewBox="0 0 20 20"
+    viewBox="0 0 384 512"
     fill="currentColor"
   >
-    <path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z" />
+    <path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z" />
+  </svg>
+);
+
+export const BookMarkIconTabletMobile = ({
+  className,
+  width = "2rem",
+  height = "2rem",
+}) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className={className}
+    width={width}
+    height={height}
+    fill="none"
+    viewBox="0 0 24 24"
+    strokeWidth="1.5"
+    stroke="currentColor"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z"
+    />
   </svg>
 );
 

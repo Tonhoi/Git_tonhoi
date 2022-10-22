@@ -6,11 +6,18 @@ import {
   FacebookIcon,
   InstagramIcon,
 } from "../../../../components/Icons/Icons";
+import { useSelector } from "react-redux";
 
 const cx = classNames.bind(styles);
 const Footer = () => {
+  const loadingAdvanced = useSelector((prev) => prev.root.loadingAdvanced);
+
   return (
-    <footer className={cx("footer")}>
+    <footer
+      className={cx("footer", {
+        active: loadingAdvanced,
+      })}
+    >
       <div className={cx("container")}>
         <div className={cx("heading")}>
           <h3>

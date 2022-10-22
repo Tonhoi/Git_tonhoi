@@ -68,16 +68,15 @@ const Filter = () => {
 
     localStorage.setItem("slugUrlCurrent", danhMuc.current.value);
     dispatch(setSlugUrlCurrent(danhMuc.current.value));
-    console.log(danhMuc.current.value);
   };
   useEffect(() => {
     if (window.performance) {
-      if (performance.navigation.type == 1) {
-        const sliceRult = pathname.slice(8, pathname.length);
+      if (performance.navigation.type === 1) {
+        // const sliceRult = pathname.slice(8, pathname.length);
         // console.log(sliceRult);
         // console.log(sliceRult.indexOf("&"));
         // console.log(sliceRult.search("hai-huoc"));
-        console.log(sliceRult.substring("minh toc quan"));
+        // sapXep.current.value = "hello";
         // console.log(danhMuc.current.value);
       }
     }

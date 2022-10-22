@@ -14,7 +14,7 @@ const Home = () => {
   useEffect(() => {
     const fetch = async () => {
       try {
-        await dispatch(getAllListMovie(["phim-moi", page]));
+        const res = await dispatch(getAllListMovie(["phim-moi", page]));
       } catch (error) {
         console.log("có lỗi xảy ra");
       }

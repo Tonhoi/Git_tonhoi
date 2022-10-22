@@ -20,7 +20,7 @@ import Button from "../../../../../components/Button";
 import GetSearchMovie from "../../../../../services/GetSearchMovieService";
 
 const cx = classNames.bind(styles);
-const Search = () => {
+const Search = ({ isSearch }) => {
   const classNameRef = useRef();
   // redux
   const dispatch = useDispatch();
@@ -84,7 +84,11 @@ const Search = () => {
 
   return (
     <>
-      <div className={cx("search-on-pc")}>
+      <div
+        className={cx("search-on-pc", {
+          active: isSearch,
+        })}
+      >
         <HeadlessTippy
           placement="bottom-end"
           interactive

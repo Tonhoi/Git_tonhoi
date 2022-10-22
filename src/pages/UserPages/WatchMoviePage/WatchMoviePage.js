@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { NavLink, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import classNames from "classnames/bind";
@@ -20,7 +20,6 @@ import { SaveIcon } from "../../../components/Icons/Icons";
 import { Comment } from "../../../layouts/UserLayouts/components/Content/Comment";
 import { setDetailNameMovie } from "../../../redux/reducer";
 import { db } from "../../../firebase/firebase-config";
-import { getAdditionalUserInfo } from "firebase/auth";
 
 const cx = classNames.bind(styles);
 
@@ -39,7 +38,6 @@ const WatchMoviePage = () => {
   const [episode, setEpisode] = useState("");
   const [episodeOne, setepisodeOne] = useState("");
 
-  // console.log(data);
   useEffect(() => {
     setListEpisode(data?.episodes && data?.episodes[0]?.server_data);
     setepisodeOne(
@@ -155,7 +153,7 @@ const WatchMoviePage = () => {
                   onClick={(e) => handleChangeEpisode(listEpisode.link_embed)}
                   className={className}
                 >
-                  Tập {index + 1}
+                  Tập {listEpisode.name}
                 </NavLink>
               );
             })}

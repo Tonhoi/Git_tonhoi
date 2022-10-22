@@ -17,9 +17,9 @@
   transition: all linear 0.3s;
   cursor: pointer;
 
-  &:not(:last-child) {
-    margin-right: 14px;
-  }
+  // &:not(:last-child) {
+  //   margin-right: 14px;
+  // }
   &:hover {
     color: var(--white-color);
     transition: background-color linear 0.3s;
@@ -30,14 +30,16 @@
     border-radius: 4px;
 
     color: #221313;
-    background: #a0c1e1;
+    background-color: #a0c1e1;
   }
 }
 
 @media (max-width: 1023px) {
-  .item {
-    &:not(:last-child) {
-      margin-right: 10px;
-    }
+  // .item:not(.List_active__mHtwF) {
+  //   padding-left: 0;
+  // }
+  .item:hover {
+    background-color: #a0c1e1;
+    color: var(--black-color);
   }
 }

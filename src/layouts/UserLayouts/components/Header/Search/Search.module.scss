@@ -15,7 +15,7 @@
 
     transition: all 0.3s ease;
     &:focus {
-      border-color: #fff601;
+      border-color: red;
     }
     &:not(:placeholder-shown) + .wrapper-icon-search {
       color: var(--black-color-3);
@@ -104,8 +104,27 @@
   color: var(--white-color);
 }
 
-@media (max-width: 1023px) {
-  // .search-on-pc {
-  //   display: none;
-  // }
+@media (max-width: 1024px) {
+  .wrapper-search {
+    display: flex;
+    justify-content: center;
+  }
+  .search-on-pc {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    z-index: 9999;
+
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 12px 10px;
+
+    transform: translate(-50%, -200%);
+    transition: transform linear 0.3s;
+    background-image: linear-gradient(to right, #00f260, #0575e6);
+    &.active {
+      transform: translate(-50%, 0);
+    }
+  }
 }

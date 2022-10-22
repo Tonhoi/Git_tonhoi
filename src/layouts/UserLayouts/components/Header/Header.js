@@ -8,13 +8,14 @@ import "react-toastify/dist/ReactToastify.css";
 import TippyHeadless from "@tippyjs/react/headless";
 
 import {
-  BookMarkIcon,
   ChevronDownIcon,
   MenuIcon,
   SearchIcon,
   LogOutIcon,
   SettingIcon,
   HomeIcon,
+  BookMarkIconTabletMobile,
+  BookMarkIconPc,
 } from "../../../../components/Icons";
 import { signOut } from "firebase/auth";
 import { Search } from "./Search";
@@ -32,13 +33,15 @@ const Header = () => {
   const authenticatorUser = useSelector((prev) => prev.root.authenticatorUser);
   let param = useParams();
   const [checkBlur, setCheckBlur] = useState(false);
+  const [isSearch, setIsSearch] = useState(false);
+  const [isOpenMenu, setIsOpenMenu] = useState(false);
 
   const handleLogout = (e) => {
     signOut(auth);
   };
 
   const handleSearchOnTabletMobile = () => {
-    toast("Chức năng đang được cập nhập !!");
+    setIsSearch(!isSearch);
   };
 
   useEffect(() => {
@@ -50,22 +53,35 @@ const Header = () => {
     };
   }, [checkBlur]);
 
+  const handleOpenMenuOnTabletMobile = () => {
+    setIsOpenMenu(!isOpenMenu);
+  };
+
   return (
     <>
       <ToastContainer />
-      <div className={cx("wrapper")}>
+
+      {/* code in pc */}
+      <div
+        className={cx("wrapper", {
+          active: isSearch,
+        })}
+      >
         <div className={cx("wrapper-top")}>
           <div className={cx("logo")}>
-            <div className={cx("menu-icon-block")}>
+            <div
+              className={cx("menu-icon-block")}
+              onClick={handleOpenMenuOnTabletMobile}
+            >
               <MenuIcon />
             </div>
             <img src="https://xemphim.fun/static/skin/logo-full.png" alt="" />
           </div>
-          <Search />
+          <Search isSearch={isSearch} />
           <div className={cx("options")}>
             {currentUser?.displayName && (
               <div className={cx("favourite-movie")}>
-                <BookMarkIcon className={cx("bookmark-icon")} />
+                <BookMarkIconPc className={cx("bookmark-icon")} />
                 <Link to={routes.saveMovie} className={cx("title")}>
                   Phim yêu thích
                 </Link>
@@ -90,6 +106,12 @@ const Header = () => {
                           Trang admin
                         </Link>
                       )}
+                      <Link to={routes.saveMovie} className={cx("item")}>
+                        <BookMarkIconTabletMobile
+                          className={cx("bookmark-icon")}
+                        />
+                        phim yêu thích
+                      </Link>
                       <span
                         className={cx("item")}
                         onClick={(e) => setCheckBlur(true)}
@@ -139,8 +161,16 @@ const Header = () => {
 
         {/* category */}
 
-        <div className={cx("wrapper-category")}>
-          <div className={cx("wrapper-list")}>
+        <div
+          className={cx("wrapper-category", {
+            active: isOpenMenu,
+          })}
+        >
+          <div
+            className={cx("wrapper-list", {
+              active: isOpenMenu,
+            })}
+          >
             <div className={cx("list")}>
               <List title="TRANG CHỦ" to={routes.home} />
               <List title="SHOWS" to={routes.shows} />
